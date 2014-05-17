@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body ng-app="booksApp">
+
+    <div ng-controller="MainCtrl">
+      <hr>
+      <!-- formulaire -->
+      <div>
+        <input ng-model="selectedBook.title">
+        <input ng-model="selectedBook.description">
+        <div>
+          <select id="inputType"
+                  ng-model="selectedBook.genre"
+                  ng-options="genre for genre in genres"></select>
+        </div>
+      </div>
+
+      <hr>
+      <h2>Books</h2>
+      <div ng-repeat="book in books" ng-click="selectBook(book)">
+        <h4>{{book.title}}</h4>
+        <p>{{book.description}} <b>{{book.genre}}</b></p>
+      </div>
+      <hr>
+      <a href="#" ng-click="createBook()">New Book</a>
+      <hr>
+      <div style="color: green" ng-model="selectedBook">
+        {{selectedBook.title}} : {{selectedBook.description}}
+      </div>
+    </div>
+    <!-- externe au contrôleur : ne fonctionne pas :c'est normal -->
+    <div style="color: green" ng-model="selectedBook">
+      {{selectedBook.title}} {{selectedBook.title}}
+    </div>
+
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body>
+</html>
