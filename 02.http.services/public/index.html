@@ -9,13 +9,16 @@
 <div ng-controller="MainCtrl">
   <hr>
   <div>
-    <input ng-model="selectedBook.title">
-    <input ng-model="selectedBook.description">
+    <input ng-model="book.title">
+    <input ng-model="book.description">
     <div>
       <select id="inputType"
-              ng-model="selectedBook.level"
+              ng-model="book.level"
               ng-options="level for level in levels"></select>
     </div>
+    <hr>
+    <a href="#" ng-click="createBook(book)">Ajouter un livre</a>
+    <hr>
   </div>
   <hr>
   <h2>Livres</h2>
@@ -24,9 +27,6 @@
     <p>{{book.description}} - Niveau <b>{{book.level}}</b></p>
     <hr>
   </div>
-  <hr>
-  <a href="#" ng-click="createBook()">Ajouter un livre</a>
-  <hr>
 </div>
 
 <script src="bower_components/angular/angular.min.js"></script>
