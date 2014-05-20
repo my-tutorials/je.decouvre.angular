@@ -26,4 +26,5 @@ node_modules
 00.intro/public/bower_components
 01.factory/public/bower_components
 02.http.services/public/bower_components
+03.resources/public/bower_components
 .idea/*

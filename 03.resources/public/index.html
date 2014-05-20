@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>livres</title>
+</head>
+<body ng-app="booksApp">
+
+<div ng-controller="MainCtrl">
+  <hr>
+  <div>
+    <input ng-model="book.title">
+    <input ng-model="book.description">
+    <div>
+      <select id="inputType"
+              ng-model="book.level"
+              ng-options="level for level in levels"></select>
+    </div>
+    <hr>
+    <a href="#" ng-click="createBook(book)">Ajouter un livre</a>
+    <hr>
+  </div>
+  <hr>
+  <h2>Livres</h2>
+  <div ng-repeat="book in books" ng-click="selectBook(book)">
+    <h4>{{book.title}}</h4>
+    <p>{{book.description}} - Niveau <b>{{book.level}}</b></p>
+    <hr>
+  </div>
+</div>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
