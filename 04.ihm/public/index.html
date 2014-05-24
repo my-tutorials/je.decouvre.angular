@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>livres</title>
+    <link rel="stylesheet" href="bower_components/uikit/dist/css/uikit.almost-flat.min.css" />
+  <!--
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/uikit/dist/js/uikit.min.js"></script>
+
+  -->
+
+  </head>
+
+  <body ng-app="booksApp" style="padding: 10px">
+
+
+    <div class="uk-container uk-container-center">
+
+      <div class="uk-grid" ng-controller="MainCtrl">
+        <div class="uk-width-4-10">
+
+          <div class="uk-panel">
+
+            <h3 class="uk-panel-title">Formulaire Livre</h3>
+
+              <form class="uk-form" name="bookForm" novalidate>
+                <input ng-model="book.title" name="title" placeholder="titre du film" required>
+
+
+                <span ng-show="bookForm.title.$error.required" class="uk-text-warning">Champs obligatoire</span>
+                <!--
+                <span ng-show="bookForm.title.$dirty || bookForm.title.$pristine">
+                </span>
+                -->
+
+
+                <input ng-model="book.description" placeholder="description du film">
+                <select ng-model="book.level"
+                        ng-options="level for level in levels">
+                </select>
+                <p ng-model="book">{{book._id}}</p>
+
+                <hr>
+                <button class="uk-button" ng-click="newBook()">Nouveau</button> |
+                <button class="uk-button uk-button-primary" ng-disabled="bookForm.$invalid" ng-click="saveBook(book)">Valider (ajout ou modification)</button> |
+                <button class="uk-button uk-button-danger" ng-click="deleteBook(book._id)">Supprimer</button> |
+                <hr>
+
+              </form>
+
+          </div>
+
+        </div>
+
+        <div class="uk-width-6-10">
+
+          <div class="uk-panel">
+
+            <h3 class="uk-panel-title">Liste des Livres</h3>
+
+            <table class="uk-table uk-table-hover">
+              <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Niveau</th>
+                <th>id</th>
+              </tr>
+              </thead>
+
+              <tbody ng-repeat="book in books" ng-click="selectBook(book)">
+              <tr>
+                <td>{{book.title}}</td>
+                <td>{{book.description}}</td>
+                <td>{{book.level}}</td>
+                <td>{{book._id}}</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

@@ -28,7 +28,8 @@ app.get("/books/:id", function(req, res) {
 app.delete("/books/:id", function(req, res) {
   booksDb.remove({ _id: req.params.id }, {}, function (err, numRemoved) {
     res.statusCode = 200;
-    res.send({res:numRemoved});  });
+    res.send({res:numRemoved});
+  });
 });
 
 
@@ -46,7 +47,8 @@ app.post("/books", function(req, res) {
 app.put("/books/:id", function(req, res) {
   booksDb.update({_id:req.params.id}, req.body, {}, function (err, numReplaced) {
     res.statusCode = 200;
-    res.send({res:numReplaced});  })
+    res.send({res:numReplaced});
+  })
 });
 
 // Lancer l'application une fois la base chargée
