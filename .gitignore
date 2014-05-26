@@ -30,4 +30,5 @@ node_modules
 03.resources.refactoring/public/bower_components
 04.ihm/public/bower_components
 05.filter/public/bower_components
+06.include/public/bower_components
 .idea/*
