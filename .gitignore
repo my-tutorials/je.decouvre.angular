@@ -32,4 +32,6 @@ node_modules
 05.filter/public/bower_components
 06.include/public/bower_components
 07.router/public/bower_components
+08.organize/public/bower_components
 .idea/*
+sandbox

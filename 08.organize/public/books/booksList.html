@@ -1,0 +1,36 @@
+<h3 class="uk-panel-title">Liste des Livres</h3>
+
+<form class="uk-form">
+  <!--<input ng-model="searchText" placeholder="chercher un livre">-->
+  <input ng-model="search.$" placeholder="chercher un livre">
+  <input ng-model="search.title" placeholder="par titre">
+  <input ng-model="search.description" placeholder="par description">
+  <select ng-model="search.level"
+          ng-options="level for level in levels">
+  </select>
+</form>
+
+<table class="uk-table uk-table-hover">
+  <thead>
+  <tr>
+    <th>Titre</th>
+    <th>Description</th>
+    <th>Niveau</th>
+    <th>id</th>
+  </tr>
+  </thead>
+
+  <!--
+  <tbody ng-repeat="book in books | filter:searchText" ng-click="selectBook(book)">
+  -->
+  <tbody ng-repeat="book in books | filter:search:strict" ng-click="selectBook(book)">
+
+  <tr>
+    <td>{{book.title}}</td>
+    <td>{{book.description}}</td>
+    <!-- <td>{{book.level | uppercase}}</td> -->
+    <td>{{book.level | stars}}</td>
+    <td>{{book._id}}</td>
+  </tr>
+  </tbody>
+</table>

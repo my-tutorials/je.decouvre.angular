@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>livres</title>
+    <link rel="stylesheet" href="bower_components/uikit/dist/css/uikit.almost-flat.min.css" />
+  <!--
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/uikit/dist/js/uikit.min.js"></script>
+  -->
+
+  </head>
+
+  <body ng-app="booksApp" style="padding: 10px">
+
+    <div>
+      <ul class="uk-breadcrumb">
+        <li><a href="#/actualites">Actualités</a></li>
+        <li><a href="#/coupsdecoeur">Coup de coeur</a></li>
+      </ul>
+    </div>
+
+    <div class="uk-container uk-container-center">
+
+
+      <div class="uk-grid" ng-controller="MainCtrl">
+
+        <div class="uk-width-4-10">
+
+          <div class="uk-panel" ng-include="'books/bookForm.html'" onload="whenFormIsLoaded()"></div>
+
+        </div>
+
+        <div class="uk-width-6-10">
+
+          <div class="uk-panel" ng-include="'books/booksList.html'" onload="whenListIsLoaded()"></div>
+
+        </div>
+      </div>
+
+      <div ng-view></div>
+
+    </div>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/factories/Models.js"></script>
+    <script src="js/factories/Book.js"></script>
+
+    <script src="js/controllers/AdditionCtrl.js"></script>
+    <script src="js/controllers/ActualitesCtrl.js"></script>
+    <script src="js/controllers/CoupsDeCoeurCtrl.js"></script>
+
+    <script src="js/controllers/MainCtrl.js"></script>
+
+
+
+
+
+  </body>
+</html>
